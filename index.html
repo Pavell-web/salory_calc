@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расчет зарплаты</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+
+    <h1 title="Зарплата складывается из базовой части и премиального фонда, равного 2% процента от прибыли центра. 
+        Базовая часть считается как базовая ставка за смену, умноженная на количество смен.
+        Премиальный фонд распределяется между администраторами в зависимости от количества отработанных смен">
+     Рассчёт заработной платы<br>администратора детского развивающего центра
+    </h1>
+        <div class="calc">
+            <label>
+                <input type="text" name="days" class="input1" placeholder="15">количество отработанных смен за месяц
+            </label>
+            
+            <label>
+                <input type="text" name="profit" class="input2" placeholder="850000">прибыль центра за месяц
+            </label>
+
+            <label>
+                <input type="text" name="base" class="input3" placeholder="1500">базовая ставка за смену
+            </label>
+                <div class="buttons">
+                    <button type="button" class="btn count">рассчитать</button>
+                    <button type="button" class="btn clear">очистить</button>
+                </div>
+        </div>
+    </div>  
+        <script src="js/script.js"></script>
+</body>
+</html>
