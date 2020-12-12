@@ -4,6 +4,9 @@ let base = document.querySelector('.input3');
 let count = document.querySelector('.count');
 let div = document.querySelector('.calc');
 let clear = document.querySelector('.clear');
+let help = document.querySelector('.help');
+let note = document.getElementById('note');
+let closeBtn = document.getElementById('close-btn');
 
 let daysValue;
 let profitValue;
@@ -12,7 +15,7 @@ let baseValue;
 
 days.oninput = function () {
     daysValue = parseInt(days.value);
-    console.log(daysValue); 
+    console.log(daysValue);
 }
 profit.oninput = function () {
     profitValue = parseInt(profit.value);
@@ -25,33 +28,41 @@ base.oninput = function () {
 
 
 count.onclick = function () {
-  
+
     if (days.value == '' || profit.value == '' || base.value == '') {
         alert('заполните все поля');
     }
+    else {
         let premieFond = profitValue * 0.02;
-            console.log(`премиальный фонд - ${premieFond}`);
+        console.log(`премиальный фонд - ${premieFond}`);
         let daysInPercent = Math.round(daysValue * 100 / 31);
         console.log(`дни в процентах - ${daysInPercent}`);
         let premie = Math.round(premieFond * (daysInPercent / 100));
-            console.log(`премия - ${premie}`);
+        console.log(`премия - ${premie}`);
         let salary = baseValue * daysValue + premie;
-            console.log(`зарплата - ${salary}`);  
-            console.log(`базовая ставка - ${base}`);
+        console.log(`зарплата - ${salary}`);
+        console.log(`базовая ставка - ${base}`);
 
 
         let info = document.createElement('p');
         info.classList.add('message');
         info.textContent = 'Зарплата за месяц: ' + (salary) + ' рублей';
-        div.append(info);  
-        }
-    
-  
+        div.append(info);
+    }
+}
+
+help.addEventListener('click', function () {
+    note.classList.remove('note-hidden');
+});
+
+closeBtn.addEventListener('click', function () {
+    note.classList.add('note-hidden');
+});
 
 
 clear.onclick = function () {
-days.value = '';
-profit.value = '';
-document.querySelector('.message').remove();
+    days.value = '';
+    profit.value = '';
+    document.querySelector('.message').remove();
 }
 

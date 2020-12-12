@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Расчет зарплаты</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="wrapper">
 
-    <h1 title="Зарплата складывается из базовой части и премиального фонда, равного 2% процента от прибыли центра. 
-        Базовая часть считается как базовая ставка за смену, умноженная на количество смен.
-        Премиальный фонд распределяется между администраторами в зависимости от количества отработанных смен">
-     Рассчёт заработной платы<br>администратора детского развивающего центра
-    </h1>
-        <div class="calc">
-            <label>
-                <input type="text" name="days" class="input1" placeholder="15">количество отработанных смен за месяц
-            </label>
-            
-            <label>
-                <input type="text" name="profit" class="input2" placeholder="850000">прибыль центра за месяц
-            </label>
+        <h1>
+            Рассчёт заработной платы<br>администратора детского развивающего центра
+        </h1>
 
-            <label>
-                <input type="text" name="base" class="input3" placeholder="1500">базовая ставка за смену
-            </label>
-                <div class="buttons">
-                    <button type="button" class="btn count">рассчитать</button>
-                    <button type="button" class="btn clear">очистить</button>
-                </div>
+
+
+        <div class="calc">
+
+            <div class="note note-hidden" id="note">
+                <button id="close-btn">close</button>
+                <p>Зарплата складывается из базовой части и премиального фонда (2% процента от прибыли центра).
+                    Базовая часть считается как базовая ставка за смену, умноженная на количество смен.
+                    Премиальный фонд распределяется между администраторами пропорционально количеству отработанных смен.
+                </p>
+            </div>
+
+
+            <button class="help">подсказка</button>
+
+            <label for="days">количество отработанных смен за месяц</label>
+            <input type="text" name="days" id="days" class="input1" placeholder="15">
+
+
+            <label for="profit">прибыль центра за месяц</label>
+            <input type="text" name="profit" id="profit" class="input2" placeholder="850000">
+
+
+            <label for="base">базовая ставка за смену</label>
+            <input type="text" name="base" id="base" class="input3" placeholder="1500">
+
+            <div class="buttons">
+                <button type="button" class="btn count">рассчитать</button>
+                <button type="button" class="btn clear">очистить</button>
+            </div>
         </div>
-    </div>  
-        <script src="js/script.js"></script>
+    </div>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
