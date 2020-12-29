@@ -1,12 +1,16 @@
+/////////////////Переменные/////////////////////
+
 let days = document.querySelector('.input1');
 let profit = document.querySelector('.input2');
 let base = document.querySelector('.input3');
-let count = document.querySelector('.count');
+let countBtn = document.querySelector('.btn-count');
 let div = document.querySelector('.calc');
-let clear = document.querySelector('.clear');
+let clearBtn = document.querySelector('.btn-clear');
 let help = document.querySelector('.help');
 let note = document.getElementById('note');
 let closeBtn = document.getElementById('close-btn');
+let monthLength = document.querySelector('.month-length');
+let message = document.querySelector('.message');
 
 let daysValue;
 let profitValue;
@@ -14,42 +18,50 @@ let baseValue;
 
 
 days.oninput = function () {
-    daysValue = parseInt(days.value);
-    console.log(daysValue);
+    daysValue = days.value;
 }
 profit.oninput = function () {
-    profitValue = parseInt(profit.value);
-    console.log(profitValue);
+    profitValue = profit.value;
 }
 base.oninput = function () {
-    baseValue = parseInt(base.value);
-    console.log(baseValue);
+    baseValue = base.value;
 }
 
+///////////////////Функции//////////////////////
 
-count.onclick = function () {
+let countSalary = () => {
 
     if (days.value == '' || profit.value == '' || base.value == '') {
         alert('заполните все поля');
     }
     else {
         let premieFond = profitValue * 0.02;
-        console.log(`премиальный фонд - ${premieFond}`);
-        let daysInPercent = Math.round(daysValue * 100 / 31);
-        console.log(`дни в процентах - ${daysInPercent}`);
+
+        let daysInPercent = Math.round(daysValue * 100 / monthLength.value);
+
         let premie = Math.round(premieFond * (daysInPercent / 100));
-        console.log(`премия - ${premie}`);
+
         let salary = baseValue * daysValue + premie;
-        console.log(`зарплата - ${salary}`);
-        console.log(`базовая ставка - ${base}`);
-
-
-        let info = document.createElement('p');
-        info.classList.add('message');
-        info.textContent = 'Зарплата за месяц: ' + (salary) + ' рублей';
-        div.append(info);
+        console.log(salary);
+        return salary;
     }
 }
+
+
+let showSalary = () => {
+    message.textContent = 'Зарплата за месяц: ' + countSalary() + ' руб.';
+}
+
+///////////////Обработчики событий//////////////////
+
+countBtn.addEventListener('click', showSalary);
+
+clearBtn.onclick = function () {
+    days.value = '';
+    profit.value = '';
+    message.textContent = 'Зарплата за месяц:';
+}
+
 
 help.addEventListener('click', function () {
     note.classList.remove('note-hidden');
@@ -60,9 +72,4 @@ closeBtn.addEventListener('click', function () {
 });
 
 
-clear.onclick = function () {
-    days.value = '';
-    profit.value = '';
-    document.querySelector('.message').remove();
-}
 
