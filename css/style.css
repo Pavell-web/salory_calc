@@ -74,11 +74,11 @@ margin-top: 20px;
 
 .note {
     position: absolute;
-    left: 25%;
+    left: 10%;
     z-index: 10;
     box-sizing: border-box;
     /* margin: auto; */
-    max-width: 50%;
+    max-width: 80%;
     font-size: 20px;
     color: #fff;
     background-color: rgb(89, 189, 192);
@@ -94,7 +94,6 @@ margin-top: 20px;
 position: absolute;
    right: 0;
    top: 0;
-   font-weight: bold;
-   font-size: 20px;
+   font-size: 18px;
   
 }
